@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theory of Computation Project</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Regular Languages are closed under complement</h1>
+
+  <div class="row2">
+    <p>Select a DFA</p>
+      <!-- DFA Selection Dropdown -->
+    <select id="dfa-select" onclick="update(this.value)" style="padding: 10px 20px 10px 20px;">
+      <option value="dfa1">L1 = { w | w accepts all strings ending with 1 } </option>
+      <option value="dfa2">L2 = { w | w accepts all strings containing ab } </option>
+      <option value="dfa3">L3 = { w | w accepts all strings with even number of 0's } </option>
+    </select>
+  </div>
+  
+  <div class="row3">
+    <!-- Input String -->
+    <div>
+      <input type="text" id="input-string" placeholder="Enter a string" >
+      <button id="test-string-btn">Test String</button>
+
+    </div>
+
+    <!-- Step through buttons -->
+    <div>
+      <button id="step-btn">Step</button>
+      <button id="reset-btn">Reset</button>
+    </div>
+  </div>
+
+  <div class="row4">
+    <div class="dfa-container">
+      <label for="dfa-canvas">Original DFA</label>
+      <canvas id="dfa-canvas" width="500" height="400" style="border:1px solid #000000;"></canvas>
+    </div>
+
+    <div class="dfa-container">
+      <label for="complement-dfa-canvas">Complement DFA</label>
+      <canvas id="complement-dfa-canvas" width="500" height="400" style="border:1px solid #000000;"></canvas>
+    </div>
+
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
