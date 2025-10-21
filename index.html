@@ -11,8 +11,9 @@
 
   <div class="row2">
     <p>Select a DFA</p>
-      <!-- DFA Selection Dropdown -->
+      <!-- DFA Selection Dropdown, include a placeholder -->
     <select id="dfa-select" onclick="update(this.value)" style="padding: 10px 20px 10px 20px;">
+      <option value="" disabled selected>Select a DFA</option>
       <option value="dfa1">L1 = { w | w accepts all strings ending with 1 } </option>
       <option value="dfa2">L2 = { w | w accepts all strings containing ab } </option>
       <option value="dfa3">L3 = { w | w accepts all strings with even number of 0's } </option>
@@ -38,11 +39,13 @@
     <div class="dfa-container">
       <label for="dfa-canvas">Original DFA</label>
       <canvas id="dfa-canvas" width="500" height="400" style="border:1px solid #000000;"></canvas>
+      <div id="original-dfa-status" style="color: lime;">Accepted</div>
     </div>
 
     <div class="dfa-container">
       <label for="complement-dfa-canvas">Complement DFA</label>
       <canvas id="complement-dfa-canvas" width="500" height="400" style="border:1px solid #000000;"></canvas>
+      <div id="complement-dfa-status" style="color: red;">Rejected</div>
     </div>
 
   </div>

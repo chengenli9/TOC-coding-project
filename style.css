@@ -17,17 +17,17 @@ body {
 }
 
 .row2 {
-  width: 60%;
+  width: 1100px;
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 40px;
   border: black 2px solid;
   margin-bottom: 10px;
   flex-direction: column;
 }
 
 .row3 {
-  width: 60%;
+  width: 1100px;
   display: flex;
   justify-content: space-between;
   padding: 20px;
@@ -35,7 +35,7 @@ body {
 }
 
 .row4 {
-  width: 60%;
+  width: 1100px;
   display: flex;
   justify-content: center;
   padding: 20px;

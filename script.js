@@ -2,9 +2,36 @@
 const dfaCanvas = document.getElementById('dfa-canvas');
 const complementCanvas = document.getElementById('complement-dfa-canvas');
 
-// get selected json file from dropdown
-// const dfaSelect = document.getElementById('dfa-select');
-// const selectedDFA = dfaSelect.value;
+// get user input string element
+const userInput = document.getElementById('input-string').value;
+
+// get test-string-button
+const testStringButton = document.getElementById('test-string-btn');
+
+// test the string to see if it's accepted by the DFA and its complement
+testStringButton.addEventListener('click', () => {
+  const selectedDFA = document.getElementById('dfa-select').value;
+  const inputString = document.getElementById('input-string').value;
+
+  // selected json file
+  const selectedJsonFile = `${selectedDFA}.json`;
+
+  // get json file
+  fetch(selectedJsonFile)
+    .then(response => response.json())
+    .then(dfaData => {
+      const originalDFAStatus = document.getElementById('original-dfa-status');
+      const complementDFAStatus = document.getElementById('complement-dfa-status');
+
+      // check if input string is in the language of the original DFA
+      if (checkLanguage(dfaData, inputString) && isStringAccepted(dfaData, inputString)) {
+        originalDFAStatus.textContent = 'Accepted';
+        originalDFAStatus.style.color = 'lime';
+      } else {
+        originalDFAStatus.textContent = 'Rejected';
+        originalDFAStatus.style.color = 'red';
+      }
+});
 
 
 function update(selectedDFA) {
@@ -40,7 +67,7 @@ function createComplementDFA(dfa) {
   return complementDFA;
 }
 
-drawDFA = (canvas, dfa) => {
+function drawDFA(canvas, dfa) {
   // Placeholder function to draw DFA on the given canvas
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -77,10 +104,6 @@ drawDFA = (canvas, dfa) => {
     ctx.arc(x, y, 30, 0, 3 * Math.PI);
     ctx.fillStyle = 'white';
 
-    if (dfa.acceptStates.includes(state)) {
-      ctx.arc(x, y, 25, 0, 3 * Math.PI);
-    }
-
     if (state === dfa.startState) {
       // draw a small triangle toward the state indicating start state
       ctx.moveTo(x - 30, y);
@@ -94,6 +117,14 @@ drawDFA = (canvas, dfa) => {
     ctx.fillStyle = 'black';
     ctx.fillText(state, x - 10, y + 5);
   }
+
+  // draw double circle for accept states
+  dfa.acceptStates.forEach(acceptState => {
+    const { x, y } = statePositions[acceptState];
+    ctx.beginPath();
+    ctx.arc(x, y, 26, 0, 2 * Math.PI);
+    ctx.stroke();
+  });
 
 }
 
@@ -134,4 +165,33 @@ drawTransitionArrow = (ctx, fromState, toState, fromPos, toPos, symbol, headlen 
     const midY = (startY + endY) / 2;
     ctx.fillText(symbol, midX, midY);
   }
+}
+
+// check if each char in string is in the alphabet of the DFA
+function checkLanguage(dfa, inputString) {
+  //get the dfa.alphabet
+  const alphabet = dfa.alphabet;
+
+  for (let char of inputString) {
+    if (!alphabet.includes(char)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// check if input string is accepted by the DFA
+function isStringAccepted(dfa, inputString) {
+  let currentState = dfa.startState;
+
+  for (let char of inputString) {
+    const transitions = dfa.transitions[currentState];
+    if (transitions && transitions[char]) {
+      currentState = transitions[char];
+    } else {
+      return false; // no valid transition
+    }
+  }
+
+  return dfa.acceptStates.includes(currentState);
 }
