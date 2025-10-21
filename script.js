@@ -31,6 +31,7 @@ testStringButton.addEventListener('click', () => {
         originalDFAStatus.textContent = 'Rejected';
         originalDFAStatus.style.color = 'red';
       }
+    });
 });
 
 
@@ -128,7 +129,7 @@ function drawDFA(canvas, dfa) {
 
 }
 
-drawTransitionArrow = (ctx, fromState, toState, fromPos, toPos, symbol, headlen = 10) => {
+function drawTransitionArrow(ctx, fromState, toState, fromPos, toPos, symbol, headlen = 10) {
   if (fromState === toState) {
     ctx.beginPath();
     ctx.arc(fromPos.x, fromPos.y - 40, 20, 0, 2 * Math.PI);
