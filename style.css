@@ -8,10 +8,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Arial, sans-serif;
+    font-family: sans-serif;
     line-height: 1.6;
     background-color: #ffffff;
-    color: #333;
+    color: #101010;
     padding: 20px;
     justify-content: center;
 }
@@ -39,6 +39,7 @@ body {
   display: flex;
   justify-content: center;
   padding: 20px;
+  padding-bottom: 60px;
   border: black 2px solid;
   flex-direction: row;
   margin-top: 10px;
@@ -49,4 +50,16 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 10px;
+}
+
+#dfa-canvas, #complement-dfa-canvas {
+  background-color: white;
+}
+
+#test-string-btn, #input-string {
+  padding: 10px;
+}
+
+#dfa-status, #complement-status {
+  font-size: 30px;
 }
