@@ -5,7 +5,6 @@ This is a final programming project for Theory of Computation. The purpose of th
 ## Table of Contents
 - [Description](#description)
 - [Features](#features)
-- [Installation](#installation)
 - [play](#try-it-out)
 
 ## Description
@@ -20,14 +19,6 @@ This is a fully interactive website created with:
 - Supports custom input strings and alphabets  
 - Visualizes DFA transitions 
 - Select and load different JSON files
-
-## Installation
-
-Install and edit the project locally
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/your-repo.git
 
 ## Try It Out
 
