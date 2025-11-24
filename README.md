@@ -11,26 +11,26 @@ This is a final programming project for Theory of Computation. The purpose of th
 - [License](#license)
 
 ## Description
-
-Provide a more detailed description of the project. For example:
-
-- What problem it solves  
-- The technologies or languages used (e.g., Python, JavaScript, C)  
-- Any important algorithms or concepts (e.g., DFA simulation, file processing, machine learning)  
+This is a fully interactive website created with:
+- HTML/CSS
+- JavaScript
+- JSON files
 
 ## Features
 
-List the key features or functionality of your project. Example:
-
 - Simulates deterministic finite automata (DFA)  
 - Supports custom input strings and alphabets  
-- Visualizes DFA transitions (if applicable)  
-- Allows saving/loading DFA definitions from JSON  
+- Visualizes DFA transitions 
+- Select and load different JSON files
 
 ## Installation
 
-Explain how to set up the project locally. Example:
+Install and edit the project locally
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/your-repo.git
+
+## Try It Out
+
+https://chengenli9.github.io/TOC-coding-project/ 
