@@ -35,7 +35,8 @@ body {
 }
 
 .row4 {
-  width: 60%;
+  min-width: 60%;
+  width: auto;
   display: flex;
   justify-content: center;
   padding: 20px;
