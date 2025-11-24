@@ -6,9 +6,7 @@ This is a final programming project for Theory of Computation. The purpose of th
 - [Description](#description)
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [play](#try-it-out)
 
 ## Description
 This is a fully interactive website created with:
